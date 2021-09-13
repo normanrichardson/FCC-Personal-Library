@@ -65,6 +65,16 @@ const findBooks = (filter, done) => {
   })
 }
 
+let inital_connection = false
+const run_tests = (tests) => {
+  mongoose.connection.on("connected", () => {
+    if (!inital_connection) {
+      tests()
+    }
+    inital_connection = true
+  })
+}
+
 // Exports.
 module.exports.Book = Book;
 module.exports.createBook = createBook;
@@ -72,3 +82,4 @@ module.exports.updateBook = updateBook;
 module.exports.deleteBook = deleteBook;
 module.exports.deleteAllBooks = deleteAllBooks;
 module.exports.findBooks = findBooks;
+module.exports.run_tests = run_tests;
