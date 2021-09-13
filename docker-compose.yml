@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports: 
+      - "27017:27017"
+  web:
+    build: "./"
+    command: npm run start
+    ports: 
+      - "3000:3000"
+    environment:
+      DB: mongodb://root:example@db:27017
+      NODE_ENV: test
+      PORT: 3000
+    depends_on:
+      - "db"
+    
