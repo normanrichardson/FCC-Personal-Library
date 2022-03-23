@@ -13,21 +13,27 @@ View at:
  * Mongoose ODM
  * Docker
 
+## Project Improvements
+
+* Local testing environment with Docker.
+
 ## Local testing with docker
-As the project reads and writes to a database, I have extended the project by adding docker/containers, so testing can be done locally.
+
+As the project reads and writes to a database, I have extended the project by adding docker containers, so testing can be done locally.
 
 1. Clone
-
-> git clone https://github.com/normanrichardson/FCC-Personal-Library.git
-
-> cd FCC-Exercise-Tracker
+    ```
+    $ git clone https://github.com/normanrichardson/FCC-Personal-Library.git
+    $ cd FCC-Exercise-Tracker
+    ```
 
 2. Execute docker-compose
-
-> docker-compose up
-
-Go to localhost:3000
+    ```
+    $ docker-compose up
+    ```
+    Go to localhost:3000
 
 3. Testing
-
-> npn run test 
+    ```
+    $ npn run test 
+    ```
