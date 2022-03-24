@@ -9,12 +9,13 @@
 'use strict';
 
 // Import the data layer.
-const Book = require('../data/dbLayer.js').Book;
-const createBook = require('../data/dbLayer.js').createBook;
-const updateBook = require('../data/dbLayer.js').updateBook;
-const deleteBook = require('../data/dbLayer.js').deleteBook;
-const deleteAllBooks = require('../data/dbLayer.js').deleteAllBooks;
-const findBooks = require('../data/dbLayer.js').findBooks;
+const { 
+  Book,
+  createBook,
+  updateBook,
+  deleteBook,
+  deleteAllBooks,
+  findBooks } = require('../dbLayer');
 
 
 module.exports = function (app) {
