@@ -35,5 +35,5 @@ As the project reads and writes to a database, I have extended the project by ad
 
 3. Testing
     ```
-    $ npn run test 
+    $ npm run test 
     ```
