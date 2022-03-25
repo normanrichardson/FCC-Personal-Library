@@ -16,6 +16,7 @@ View at:
 ## Project Improvements
 
 * Local testing environment with Docker.
+* Restructured the file layout to better represent an MVC pattern.
 
 ## Local testing with docker
 
