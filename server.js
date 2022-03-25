@@ -8,7 +8,7 @@ require('dotenv').config();
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
-const { connection }       = require('./dbLayer');
+const { connection }       = require('./models');
 
 const app = express();
 

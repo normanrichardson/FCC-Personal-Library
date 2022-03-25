@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { books } = require('../dbLayer');
+const { books } = require('../models');
 
 router.route('/')
   // Get all the books in the library.
