@@ -7,8 +7,8 @@ router.route('/')
   // Get all the books in the library.
   .get( (req, res) => {
     // Set the filter to empty to return all the books.
-    let filter = {}
-    books.findBooks(filter, (err, data) => {
+    //let filter = {}
+    books.findBooksById(undefined, (err, data) => {
       if (err) return console.error(err)
       res.json(data)
     })
@@ -20,9 +20,7 @@ router.route('/')
     let title = req.body.title;
     // If the title is undefined return an error.
     if (title == undefined) return res.json("missing required field title")
-    // Create a new book via the model.
-    const newBook = new books.Book({title})
-    books.createBook(newBook, (err, data) => {
+    books.createBook(title, (err, data) => {
       if (err) return console.error(err)
       res.json(data)
     })
@@ -40,8 +38,8 @@ router.route('/:id')
   // Get a book in the library.
   .get( (req, res) => {
     // Create a filter with the book id.
-    let filter = {_id:req.params.id}
-    books.findBooks(filter, (err, data) => {
+    let id = req.params.id
+    books.findBooksById(id, (err, data) => {
       if (err) return console.error(err)
       // If the returned list is empty return an error.
       if (data.length<1) return res.json("no book exists")
@@ -57,15 +55,15 @@ router.route('/:id')
     let comment = req.body.comment;
     // If the comment is undefined return an error.
     if (comment==undefined) return res.json("missing required field comment")
-    // Update the book with the comment and increment the comment count.
-    books.updateBook(id, {$push: { comments: comment }, $inc: {commentcount: 1}}, (err, data) => {
+    // Update the book's comments.
+    books.updateBookComment(id, comment, (err, data) => {
       if (err) return console.error(err)
       // If the number of modified documents is 0 return an error.
       if (data.nModified==0) {
         return res.json("no book exists")
       }
       // Find the book and return its information.
-      books.findBooks({_id:id}, (err, data) => {
+      books.findBooksById(id, (err, data) => {
         if (err) return console.error(err)
         return res.json(data[0])
       })
