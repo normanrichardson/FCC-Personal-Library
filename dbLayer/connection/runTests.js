@@ -1,3 +1,5 @@
+let mongoose = require('mongoose')
+
 let inital_connection = false;
 
 module.exports = (mongoose) => {
