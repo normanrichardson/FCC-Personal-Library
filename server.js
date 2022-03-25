@@ -5,10 +5,10 @@ const bodyParser  = require('body-parser');
 const cors        = require('cors');
 require('dotenv').config();
 
-const apiRoutes         = require('./routes/api.js');
-const fccTestingRoutes  = require('./routes/fcctesting.js');
-const runner            = require('./test-runner');
-const { connection }       = require('./models');
+const apiRoutes         = require('./api.js');
+const fccTestingRoutes  = require('./fcctesting/fcctesting.js');
+const runner            = require('./fcctesting/test-runner');
+const { connection }    = require('./models');
 
 const app = express();
 
